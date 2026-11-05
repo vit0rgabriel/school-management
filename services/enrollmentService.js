@@ -1,4 +1,4 @@
-import Enrollment from "../models/Enrollment";
+import Enrollment from "../models/Enrollment.js";
 
 const createEnrollment = async (data) => {
     const { dataMatricula, status, notaFinal } = data
@@ -31,8 +31,11 @@ const createEnrollment = async (data) => {
         createdAt: enrollment.createdAt,
         updatedAt: enrollment.updatedAt
     }
+
+    return enrollment;
 }
 
 export default {
-    createEnrollment
+    createEnrollment,
+
 }

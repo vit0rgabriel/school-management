@@ -7,14 +7,14 @@ import enrollmentRoutes from "./routes/enrollmentRoutes.js"
 
 import studentRoutes from "./routes/studentRoutes.js"
 
-import subjectRoutes from "./routes/subjectRoutes.js"
+// import subjectRoutes from "./routes/subjectRoutes.js"
 
-import teacherRoutes from "./routes/teacherRoutes.js"
+// import teacherRoutes from "./routes/teacherRoutes.js"
 
 dotenv.config()
 
 const app = express();
-const PORT = 4422
+const PORT = 9090
 
 app.use(express.json());
 
@@ -22,9 +22,9 @@ app.use("/enrollments", enrollmentRoutes)
 
 app.use("/students", studentRoutes)
 
-app.use("/subjects", subjectRoutes)
+// app.use("/subjects", subjectRoutes)
 
-app.use("/teachers", teacherRoutes)
+// app.use("/teachers", teacherRoutes)
 
 const startServer = async () => {
     try {

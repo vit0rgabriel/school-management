@@ -1,5 +1,5 @@
-import Teacher from "../models/Teacher";
+// import Teacher from "../models/Teacher";
 
-export default {
+// export default {
 
-}
+// }
