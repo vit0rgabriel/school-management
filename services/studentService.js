@@ -40,7 +40,7 @@ const createStudent = async (data) => {
 const getAllStudents = async () => {
     return Student.find()
 }
-
+    
 const getStudentById = async (id) => {
     const student = await Student.findById(id);
 
@@ -55,15 +55,84 @@ const getStudentById = async (id) => {
 
 const searchStudentsActives = async (ativo) => {
     const student = await Student.find({
-        ativo: { $regex: ativo, $options: "i" } 
+        ativo: true,
     })
 
-    return students
+    if (!student) {
+        const error = new Error("Estudante não encontrado")
+        error.statusCode = 404
+        throw error
+    }
+
+    return student
+}
+
+const searchStudentsNames = async (nome) => {
+    const student = await Student.find({
+        nome
+    })
+
+    if (!student) {
+        const error = new Error("Estudante não encontrado")
+        error.statusCode = 404
+        throw error
+    }
+
+    return student
+}
+
+const countStudents = async () => {
+    return Student.countDocuments()
+}
+
+const updateStudent = async (id, data) => {
+    const { nome, email, idade, matricula } = data
+    const student = await Student.findByIdAndUpdate(id, data, {
+        new: true,
+        runValidators: true,
+    });
+
+    if (!student) {
+        const error = new Error("Estudante não encontrado")
+        error.statusCode = 404
+        throw error
+    }
+
+    return student
+}
+
+const updateStatus = async (id, data) => {
+    const student = await Student.findByIdAndUpdate(id, data)
+
+    if (!student) {
+        const error = new Error("Estudante não encontrado")
+        error.statusCode = 404
+        throw error
+    }
+
+    return student
+}
+
+const deleteStudent = async (id) => {
+    const student = await Student.findByIdAndDelete(id)
+
+    if (!student) {
+        const error = new Error("Estudante não encontrado")
+        error.statusCode = 404
+        throw error
+    }
+
+    return student
 }
 
 export default {
     createStudent,
     getAllStudents,
     getStudentById,
-    searchStudentsActives
+    searchStudentsActives,
+    searchStudentsNames,
+    countStudents,
+    updateStudent,
+    updateStatus,
+    deleteStudent
 }

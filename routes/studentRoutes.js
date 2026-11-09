@@ -20,8 +20,33 @@ router.get(
 )
 
 router.get(
-    "/active",
+    "/active/students",
     studentController.searchStudentsActives
+)
+
+router.get(
+    "/:name/students",
+    studentController.searchStudentsNames
+)
+
+router.get(
+    "/count/students/user",
+    studentController.countStudents
+)
+
+router.put(
+    "/:id/update",
+    studentController.updateStudent
+)
+
+router.patch(
+    "/:id/upd",
+    studentController.updateStatus
+)
+
+router.delete(
+    "/:id/delete",
+    studentController.deleteStudent
 )
 
 export default router;

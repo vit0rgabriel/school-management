@@ -1,7 +1,11 @@
+import express from "express"
+import teacherController from "../controllers/teacherController.js"
 
-// import express from "express"
-// import teacherController from "../controllers/teacherController.js"
+const router = express.Router()
 
-// const router = express.Router()
+router.post(
+    "/",
+    teacherController.createTeacher
+)
 
-// export default router;
+export default router;
