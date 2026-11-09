@@ -20,7 +20,7 @@ router.get(
 )
 
 router.get(
-    "/active/students",
+    "/active/students/active",
     studentController.searchStudentsActives
 )
 
