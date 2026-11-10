@@ -1,4 +1,3 @@
-
 import express from "express"
 import enrollmentController from "../controllers/enrollmentController.js"
 
@@ -6,7 +5,7 @@ import enrollmentController from "../controllers/enrollmentController.js"
 const router = express.Router()
 
 router.post(
-    "/enrollment",
+    "/",
     enrollmentController.createEnrollment
 )
 

@@ -79,11 +79,55 @@ const countTeachers = async (req, res, next) => {
     }
 }
 
+const updateTeacher = async (req, res, next) => {
+    try {
+        const teacher = await teacherService.updateTeacher(req.params.id,
+            req.body)
+
+        res.status(200).json({
+            message: "Professor(a) mostrado(a) com sucesso",
+            data: teacher,
+        })
+    } catch (error) {
+        next(error)
+    }
+}
+
+const updateStatus = async (req, res, next) => {
+    try {
+        const teacher = await teacherService.updateStatus(req.params.id,
+            req.body)
+
+        res.status(200).json({
+            message: "Professor(a) mostrado(a) com sucesso",
+            data: teacher,
+        })
+    } catch (error) {
+        next(error)
+    }
+}
+
+const deleteTeacher = async (req, res, next) => {
+    try {
+        const teacher = await teacherService.deleteTeacher(req.params.id)
+
+        res.status(200).json({
+            message: "Professor(a) mostrado(a) com sucesso",
+            data: teacher,
+        })
+    } catch (error) {
+        next(error)
+    }
+}
+
 export default {
     createTeacher,
     getAllTeachers,
     getTeachersById,
     searchTeachersActives,
     searchTeachersSpeciality,
-    countTeachers
+    countTeachers,
+    updateTeacher,
+    updateStatus,
+    deleteTeacher
 }

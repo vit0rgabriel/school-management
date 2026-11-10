@@ -33,4 +33,19 @@ router.get(
     teacherController.countTeachers
 )
 
+router.put(
+    "/:id",
+    teacherController.updateTeacher
+)
+
+router.patch(
+    "/:id",
+    teacherController.updateStatus
+)
+
+router.delete(
+    "/:id",
+    teacherController.deleteTeacher
+)
+
 export default router;

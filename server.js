@@ -7,7 +7,7 @@ import enrollmentRoutes from "./routes/enrollmentRoutes.js"
 
 import studentRoutes from "./routes/studentRoutes.js"
 
-// import subjectRoutes from "./routes/subjectRoutes.js"
+import subjectRoutes from "./routes/subjectRoutes.js"
 
 import teacherRoutes from "./routes/teacherRoutes.js"
 
@@ -22,7 +22,7 @@ app.use("/enrollments", enrollmentRoutes)
 
 app.use("/students", studentRoutes)
 
-// app.use("/subjects", subjectRoutes)
+app.use("/subjects", subjectRoutes)
 
 app.use("/teachers", teacherRoutes)
 

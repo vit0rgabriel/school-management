@@ -86,7 +86,7 @@ const updateStudent = async (req, res, next) => {
         )
 
         res.status(200).json({
-            message: "Estudantes encontrados com sucesso",
+            message: "Estudante atualizado com sucesso",
             data: students
         })
     } catch (error) {
@@ -100,7 +100,7 @@ const updateStatus = async (req, res, next) => {
             req.body)
         
         res.status(200).json({
-            message: "Estudantes encontrados com sucesso",
+            message: "Estudantes atualizados com sucesso",
             data: students
         })
     } catch (error) {
@@ -113,7 +113,7 @@ const deleteStudent = async (req, res, next) => {
         const students = await studentService.deleteStudent(req.params.id)
         
         res.status(200).json({
-            message: "Estudantes encontrados com sucesso",
+            message: "Estudantes deletados com sucesso",
             data: students
         })
     } catch (error) {

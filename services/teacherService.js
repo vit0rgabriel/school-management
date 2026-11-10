@@ -46,7 +46,7 @@ const getAllTeachers = async () => {
 const getTeachersById = async (id) => {
     const teacher = await Teacher.findById(id)
 
-        if (!teacher) {
+    if (!teacher) {
         const error = new Error("Professor(a) não encontrado")
         error.statusCode = 404
         throw error
@@ -56,11 +56,11 @@ const getTeachersById = async (id) => {
 }
 
 const searchTeachersActives = async (ativo) => {
-    const teacher = await Teacher.find({ 
+    const teacher = await Teacher.find({
         ativo: true
     })
 
-        if (!teacher) {
+    if (!teacher) {
         const error = new Error("Professor(a) não encontrado")
         error.statusCode = 404
         throw error
@@ -74,7 +74,7 @@ const searchTeachersSpeciality = async (especialidade) => {
         especialidade
     })
 
-        if (!teacher) {
+    if (!teacher) {
         const error = new Error("Professor(a) não encontrado")
         error.statusCode = 404
         throw error
@@ -87,11 +87,53 @@ const countTeachers = async () => {
     return Teacher.countDocuments()
 }
 
+const updateTeacher = async (id, data) => {
+    const teacher = await Teacher.findByIdAndUpdate(id, data, {
+        new: true,
+        runValidators: true
+    })
+
+    if (!teacher) {
+        const error = new Error("Professor(a) não encontrado")
+        error.statusCode = 404
+        throw error
+    }
+
+    return teacher
+}
+
+const updateStatus = async (id, data) => {
+    const teacher = await Teacher.findByIdAndUpdate(id, data)
+
+    if (!teacher) {
+        const error = new Error("Professor(a) não encontrado")
+        error.statusCode = 404
+        throw error
+    }
+
+    return teacher
+}
+
+const deleteTeacher = async (id) => {
+    const teacher = await Teacher.findByIdAndDelete(id)
+
+    if (!teacher) {
+        const error = new Error("Professor(a) não encontrado")
+        error.statusCode = 404
+        throw error
+    }
+
+    return teacher
+}
+
 export default {
     createTeacher,
     getAllTeachers,
     getTeachersById,
     searchTeachersActives,
     searchTeachersSpeciality,
-    countTeachers
+    countTeachers,
+    updateTeacher,
+    updateStatus,
+    deleteTeacher
 }

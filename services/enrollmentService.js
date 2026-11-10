@@ -1,24 +1,9 @@
 import Enrollment from "../models/Enrollment.js";
 
 const createEnrollment = async (data) => {
-    const { dataMatricula, status, notaFinal } = data
-
-    if (!dataMatricula) {
-        const error = new Error("A data da matrícula é obrigatória")
-        error.statuscode = 400
-        throw error
-    }
-
-    const enrollmentExists = await Enrollment.findOne({ dataMatricula })
-
-    if (enrollmentExists) {
-        const error = new Error("A data da matrícula já foi utilizada")
-        error.statusCode = 400
-        throw error
-    }
+    const { status, notaFinal } = data
 
     const enrollment = await Enrollment.create({
-        dataMatricula,
         status,
         notaFinal
     })

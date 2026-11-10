@@ -3,6 +3,12 @@ import mongoose from "mongoose";
 
 const SubjectSchema = new mongoose.Schema(
     {
+
+        teacherId: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Teacher",
+            require: true,
+        },
         nome: {
             type: String,
             required: true,
