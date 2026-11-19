@@ -3,7 +3,7 @@ import User from "../models/User.js"
 
 const authMiddleware = async (req, res, next) => {
     try {
-        const authorization = req.headers.authMiddleware
+        const authorization = req.headers.authorization
 
         if (!authorization) {
             return res.status(401).json({ error: "Token não enviado" })
@@ -44,6 +44,4 @@ const authMiddleware = async (req, res, next) => {
     }
 }
 
-export default {
-    authMiddleware,
-}
+export default authMiddleware

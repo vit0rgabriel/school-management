@@ -6,3 +6,7 @@ import userController from "../controllers/userController.js"
 const router = express.Router()
 
 router.get("/me", authMiddleware, userController.getMe)
+router.put("/me", authMiddleware, userController.updateMe)
+router.get("/", authMiddleware, adminMiddleware, userController.getUsers)
+
+export default router

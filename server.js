@@ -13,16 +13,16 @@ import teacherRoutes from "./routes/teacherRoutes.js"
 
 import authRoutes from "./routes/authRoutes.js"
 
-import userRoutes from ".routes/userRoutes.js"
+import userRoutes from "./routes/userRoutes.js"
 
 dotenv.config()
 
 const app = express();
-const PORT = process.env.PORT || 8700
+const PORT = process.env.PORT || 9090
 
 app.use(express.json());
 
-app.use("/user", userRoutes)
+app.use("/users", userRoutes)
 
 app.use("/auth", authRoutes)
 

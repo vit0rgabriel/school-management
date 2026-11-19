@@ -1,16 +1,44 @@
-import userService from "..service/userService.js"
+import userService from "../services/userService.js"
 
 const getMe = async (req, res, next) => {
     try {
-       res.status(200).json({
-        message: "Usuário Logado encontrado",
-        data: req.user
-       })
+        res.status(200).json({
+            message: "Usuário Logado encontrado",
+            data: req.user
+        })
     } catch (error) {
-        next (error)
+        next(error)
+    }
+}
+
+const updateMe = async (req, res, next) => {
+    try {
+        const user = await userService.updateMe(req.user._id, req.body)
+
+        res.status(200).json({
+            message: "Perfil atualizado com sucesso",
+            data: user
+        })
+    } catch (error) {
+        next(error)
+    }
+}
+
+const getUsers = async (req, res, next) => {
+    try {
+        const user = await userService.getUsers()
+
+        res.status(200).json({
+            message: "Usuários encontrados com sucesso",
+            data: user
+        })
+    } catch (error) {
+        next(error)
     }
 }
 
 export default {
-    getMe
+    getMe,
+    updateMe,
+    getUsers
 }
