@@ -1,8 +1,7 @@
 import express from "express";
 import dotenv from "dotenv"
-import connectDB from "./config/db.js";
 
-import authRoutes from "./routes/authRoutes.js"
+import connectDB from "./config/db.js";
 
 import enrollmentRoutes from "./routes/enrollmentRoutes.js"
 
@@ -12,12 +11,18 @@ import subjectRoutes from "./routes/subjectRoutes.js"
 
 import teacherRoutes from "./routes/teacherRoutes.js"
 
+import authRoutes from "./routes/authRoutes.js"
+
+import userRoutes from ".routes/userRoutes.js"
+
 dotenv.config()
 
 const app = express();
-const PORT = 9090
+const PORT = process.env.PORT || 8700
 
 app.use(express.json());
+
+app.use("/user", userRoutes)
 
 app.use("/auth", authRoutes)
 

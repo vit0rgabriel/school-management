@@ -37,7 +37,13 @@ const authMiddleware = async (req, res, next) => {
 
         req.user = user
 
+
+        next();
     } catch (error) {
-        next(error)
+        return res.status(403).json({ error: "Token inválido ou mal formatado" })
     }
+}
+
+export default {
+    authMiddleware,
 }
