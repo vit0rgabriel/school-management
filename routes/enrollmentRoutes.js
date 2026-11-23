@@ -7,62 +7,74 @@ import adminMiddleware from "../middlewares/adminMiddleware.js"
 const router = express.Router()
 
 router.post(
-    "/", authMiddleware, adminMiddleware,
+    "/",
+    authMiddleware, adminMiddleware,
     enrollmentController.createEnrollment
 )
 
 router.get(
-    "/", authMiddleware,
+    "/",
+    authMiddleware,
     enrollmentController.getAllEnrollments
 )
 
 router.get(
-    "/:id", authMiddleware,
+    "/:id",
+    authMiddleware,
     enrollmentController.getEnrollmentById
 )
 
 router.get(
-    "/student/:studentId", authMiddleware,
+    "/student/:studentId",
+    authMiddleware,
     enrollmentController.getEnrollmentByStudentId
 )
 
 router.get(
-    "/subject/:subjectId", authMiddleware,
+    "/subject/:subjectId",
+    authMiddleware,
     enrollmentController.getEnrollmentBySubjectId
 )
 
 router.get(
-    "/status/:status", authMiddleware, adminMiddleware, 
+    "/status/:status",
+    authMiddleware, adminMiddleware,
     enrollmentController.getEnrollmentByStatus
 )
 
 router.get(
-    "//count", authMiddleware, adminMiddleware,
+    "//count",
+    authMiddleware, adminMiddleware,
     enrollmentController.countEnrollments
 )
 
 router.patch(
-    "/:id/grade", authMiddleware, adminMiddleware,
+    "/:id/grade",
+    authMiddleware, adminMiddleware,
     enrollmentController.updateEnrollmentByGrade
 )
 
 router.patch(
-    "/:id/status", authMiddleware, adminMiddleware,
+    "/:id/status",
+    authMiddleware, adminMiddleware,
     enrollmentController.updateStatus
 )
 
 router.delete(
-    "/:id/delete", authMiddleware, adminMiddleware,
+    "/:id/delete",
+    authMiddleware, adminMiddleware,
     enrollmentController.deleteEnrollment
 )
 
 router.get(
-    "/students/:studentId/history", authMiddleware, adminMiddleware,
+    "/students/:studentId/history",
+    authMiddleware, adminMiddleware,
     enrollmentController.getHistoryStudents
 )
 
 router.get(
-    "/subjects/:studentId/students/count", authMiddleware, adminMiddleware,
+    "/subjects/:studentId/students/count",
+    authMiddleware, adminMiddleware,
     enrollmentController.getStudentsBySubject
 )
 

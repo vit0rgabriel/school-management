@@ -6,47 +6,56 @@ import adminMiddleware from "../middlewares/adminMiddleware.js"
 const router = express.Router()
 
 router.post(
-    "/", authMiddleware, adminMiddleware,
+    "/", 
+    authMiddleware, adminMiddleware,
     subjectController.createSubject
 )
 
 router.get(
-    "/", authMiddleware,
+    "/", 
+    authMiddleware,
     subjectController.getAllSubjects
 )
 
 router.get(
-    "/:id", authMiddleware,
+    "/:id", 
+    authMiddleware,
     subjectController.getSubjectsById
 )
 
 router.get(
-    "/teacher/:teacherId", authMiddleware,
+    "/teacher/:teacherId", 
+    authMiddleware,
     subjectController.getSubjectsByTeacher
 )
 
 router.get(
-    "/active/wasd", authMiddleware, adminMiddleware,
+    "/active/wasd", 
+    authMiddleware, adminMiddleware,
     subjectController.getSubjectsActive
 )
 
 router.get(
-    "/hours/:min/:max",authMiddleware, adminMiddleware,
+    "/hours/:min/:max",
+    authMiddleware, adminMiddleware,
     subjectController.getSubjectsByHours
 )
 
 router.put(
-    "/:id", authMiddleware, adminMiddleware,
+    "/:id", 
+    authMiddleware, adminMiddleware,
     subjectController.updateSubject
 )
 
 router.patch(
-    "/:id", authMiddleware, adminMiddleware,
+    "/:id", 
+    authMiddleware, adminMiddleware,
     subjectController.updateStatus
 )
 
 router.delete(
-    "/:id", authMiddleware, adminMiddleware,
+    "/:id", 
+    authMiddleware, adminMiddleware,
     subjectController.deleteSubject
 )
 
