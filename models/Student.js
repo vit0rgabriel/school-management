@@ -2,17 +2,11 @@ import mongoose from "mongoose";
 
 const StudentSchema = new mongoose.Schema(
     {
-        nome: {
-            type: String,
+        userId: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User",
             required: true,
-            trim: true
-        },
-        email: {
-            type: String,
-            required: true,
-            unique: true,
-            lowercase: true,
-            trim: true
+            unique: true
         },
         idade: {
             type: Number,

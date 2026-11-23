@@ -1,74 +1,69 @@
 import express from "express"
 import enrollmentController from "../controllers/enrollmentController.js"
-import e from "express"
+import authMiddleware from "../middlewares/authMiddleware.js"
+import adminMiddleware from "../middlewares/adminMiddleware.js"
 
 
 const router = express.Router()
 
 router.post(
-    "/",
+    "/", authMiddleware, adminMiddleware,
     enrollmentController.createEnrollment
 )
 
 router.get(
-    "/",
+    "/", authMiddleware,
     enrollmentController.getAllEnrollments
 )
 
 router.get(
-    "/:id",
+    "/:id", authMiddleware,
     enrollmentController.getEnrollmentById
 )
 
 router.get(
-    "/student/:studentId",
+    "/student/:studentId", authMiddleware,
     enrollmentController.getEnrollmentByStudentId
 )
 
 router.get(
-    "/subject/:subjectId",
+    "/subject/:subjectId", authMiddleware,
     enrollmentController.getEnrollmentBySubjectId
 )
 
 router.get(
-    "/status/:status",
+    "/status/:status", authMiddleware, adminMiddleware, 
     enrollmentController.getEnrollmentByStatus
 )
 
 router.get(
-    "//count",
+    "//count", authMiddleware, adminMiddleware,
     enrollmentController.countEnrollments
 )
 
 router.patch(
-    "/:id/grade",
+    "/:id/grade", authMiddleware, adminMiddleware,
     enrollmentController.updateEnrollmentByGrade
 )
 
 router.patch(
-    "/:id/status",
+    "/:id/status", authMiddleware, adminMiddleware,
     enrollmentController.updateStatus
 )
 
 router.delete(
-    "/:id/delete",
+    "/:id/delete", authMiddleware, adminMiddleware,
     enrollmentController.deleteEnrollment
 )
 
 router.get(
-    "/students/:studentId/history",
+    "/students/:studentId/history", authMiddleware, adminMiddleware,
     enrollmentController.getHistoryStudents
 )
 
 router.get(
-    "/subjects/:studentId/students/count",
+    "/subjects/:studentId/students/count", authMiddleware, adminMiddleware,
     enrollmentController.getStudentsBySubject
 )
-
-
-// router.get(
-//     "/subjects/:subjectId/average",
-//     enrollmentController.getNotesByAverage
-// )
 
 export default router;
