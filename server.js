@@ -21,10 +21,7 @@ const app = express();
 const PORT = process.env.PORT || 9090
 
 
-app.use(cors({
-    origin: process.env.FRONTEND_URL || "http://localhost:9191"
-})
-)
+app.use(cors())
 
 app.use(express.json());
 
