@@ -1,10 +1,10 @@
 import Student from "../models/Student.js";
 
 const createStudent = async (data) => {
-    const { nome, email, idade, matricula } = data
+    const { nome, email, idade, matricula, password } = data
 
-    if (!nome || !email || !idade || !matricula) {
-        const error = new Error("O nome e o email são obrigatórios")
+    if (!nome || !email || !idade || !matricula || !password) {
+        const error = new Error("O nome, o email e senha são obrigatórios")
         error.statuscode = 400
         throw error
     }
