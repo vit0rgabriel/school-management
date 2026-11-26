@@ -26,7 +26,7 @@ const EnrollmentSchema = new mongoose.Schema(
         },
         notaFinal: {
             type: Number,
-            required: true,
+            required: false,
             trim: true
         },
     },
