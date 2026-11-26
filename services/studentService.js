@@ -3,7 +3,7 @@ import User from "../models/User.js";
 import bcrypt from "bcryptjs";
 
 const createStudent = async (data) => {
-    const { nome, email, idade, matricula, password } = data
+    const { nome, email, idade, matricula, password, telefone } = data
 
     if (!nome || !email || !idade || !matricula || !password) {
         const error = new Error("O nome, o email e senha são obrigatórios")
