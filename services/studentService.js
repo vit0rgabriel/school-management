@@ -1,5 +1,6 @@
 import Student from "../models/Student.js";
 import User from "../models/User.js";
+import bcrypt from "bcryptjs";
 
 const createStudent = async (data) => {
     const { nome, email, idade, matricula, password } = data
