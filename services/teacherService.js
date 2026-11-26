@@ -2,7 +2,7 @@ import Teacher from "../models/Teacher.js";
 import User from "../models/User.js";
 
 const createTeacher = async (data) => {
-    const { nome, email, idade, especialidade, telefone } = data
+    const { nome, email, idade, especialidade, telefone, password } = data
 
     if (!nome || !email || !idade || !especialidade, !telefone || !password) {
         const error = new Error("O nome e o email são obrigatórios")

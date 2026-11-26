@@ -1,4 +1,5 @@
 import Student from "../models/Student.js";
+import User from "../models/User.js";
 
 const createStudent = async (data) => {
     const { nome, email, idade, matricula, password } = data
@@ -9,7 +10,7 @@ const createStudent = async (data) => {
         throw error
     }
 
-    const userExists = await Student.findOne({ email })
+    const userExists = await User.findOne({ email })
 
     if (userExists) {
         const error = new Error("O email já foi utilizado")
@@ -17,11 +18,13 @@ const createStudent = async (data) => {
         throw error
     }
 
-    const user = await Student.create({
+    const hashPassword = await bcrypt.hash(password, 10)
+
+    const user = await User.create({
         nome,
         email,
-        idade,
-        matricula,
+        userId,
+        password: hashPassword,
         role: "student",
         ativo: "true"
     })

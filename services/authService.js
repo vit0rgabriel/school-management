@@ -6,7 +6,7 @@ const register = async (data) => {
     const { nome, email, password, telefone, role } = data
 
     if (!nome || !email || !password) {
-        throw new error("Nome, email e senha são obrigatorios")
+        throw new Error("Nome, email e senha são obrigatorios")
     }
 
     const userExists = await User.findOne({ email })
@@ -22,7 +22,7 @@ const register = async (data) => {
         email,
         password: hashedPassword,
         telefone,
-        role: role || "user",
+        role: role || "student",
         ativo: true
     })
 
