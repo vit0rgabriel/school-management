@@ -24,7 +24,7 @@ const createStudent = async (data) => {
     const user = await User.create({
         nome,
         email,
-        userId,
+        telefone,
         password: hashPassword,
         role: "student",
         ativo: "true"
